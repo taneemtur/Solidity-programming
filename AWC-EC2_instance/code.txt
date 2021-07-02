@@ -1,0 +1,82 @@
+
+pragma solidity ^0.5.4;
+
+contract login {
+    
+    address payable public owner;
+    constructor () public {
+        owner = msg.sender;
+    }
+    
+    struct customer {
+        string userName;
+        uint bankGuarantee;
+        bool paid;
+    }
+    
+    struct Ec2 {
+        string productId;
+        string operatingSystem;
+        int32 vCPUs;
+        int32 memorie;
+        uint32 storageAmount;
+        address payable owner;
+        uint price;
+        bool isActive ;
+        
+    }
+    
+    mapping(address => customer) public customers;
+    mapping (string => Ec2) Ec2s;
+    Ec2[] public allEc2Instances;
+    
+    function customerSignUp(string memory _userName) public payable {
+        require(!customers[msg.sender].paid);
+        require(msg.value==1 ether);
+        owner.transfer(msg.value);
+        customers[msg.sender].userName= _userName;
+        customers[msg.sender].bankGuarantee= msg.value;
+        customers[msg.sender].paid = true;
+    }
+    
+    function createEc2(string memory _productId, string memory _operatingSystem, int32 _vCPUs, int32 _memorie, uint32 _storageAmount, uint _price) public {
+        require(!Ec2s[_productId].isActive);
+    
+    
+    Ec2 memory Ec2 = Ec2(_productId,_operatingSystem, _vCPUs, _memorie, _storageAmount, msg.sender, _price, true);  
+      
+    Ec2s[_productId].productId= _productId;
+    Ec2s[_productId].operatingSystem= _operatingSystem;
+         Ec2s[_productId].vCPUs= _vCPUs;
+          Ec2s[_productId].memorie= _memorie;
+           Ec2s[_productId].storageAmount= _storageAmount;
+            Ec2s[_productId].price= _price;
+             Ec2s[_productId].owner= msg.sender;
+             Ec2s[_productId].isActive = true;
+             allEc2Instances.push(Ec2);
+       
+}
+
+function buyData(string memory _productId, uint fromTime, uint toTime) public payable{
+    
+    require(customers[msg.sender].iscreated);
+    
+    
+    uint32 interval = toTime - fromTime;
+    require(interval >=3600);
+    uint amount = interval *Ec2s[_productId].storageAmount * Ec2s[_productId].price /3600 ;
+    Ec2s[_productId].owner.transfer(msg.value);
+    
+    
+}
+
+
+
+
+    
+    
+    
+    
+    
+    
+}

@@ -1,0 +1,12 @@
+
+Billing smart contract:
+The only owner should create resources  is an EC2 instance  it should have
+operating system
+ product ID
+ CPUs
+ memory
+ storage amount
+is active 
+Like , only owner can create many resources whenever he made resources all the resources should be stored in our products example you should have a function like create resources that is only owner can see  this function and create this function customer should be able to see all products
+ He will select  his resources that will have product ID so now he wants to buy that resources
+The registered customer should be able to buy and  has two options buy subscription and pay you go if you customer chooses buy subscription he needs to enter product ID start time  and end time and should not be less than 1-day  and amount it should be price in the product * time interval that is start time to end time and money  should not transfer directly to the owner you should transfer to the smart contract and the money can withdraw directly  after expiry date finally the customer should be able to see his resources including amount and start time and time etc and for  pay-as-you-go, you should enter product ID then he'll by-product it should show all products he bought (important)when the user buy pay-as-you-go  should be able to see his usage of his resources  and cost for his usuage  and that should be updated by only owner to every customer and the customer can able to see details.
