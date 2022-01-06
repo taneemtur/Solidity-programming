@@ -1,0 +1,12 @@
+Make a document for:
+How to initialize and migration?
+
+Upgradeable contracts cannot have a constructor. 
+To help you run initialization code, OpenZeppelin Contracts provides the Initializable base contract that allows you to tag a method as initializer, ensuring it can be run only once.
+As an example, let’s write a new version of the token contract with an initializer, storing the address of an admin who will be the only one allowed to change its contents.
+For all practical purposes, the initializer acts as a constructor. However, keep in mind that since it’s a regular function, you will need to manually call the initializers of all base contracts (if any).
+
+
+Does the marketing wallet get eth instead of tokens?
+Takefee function calculates all fees and implement at transfer function to dedcut respective fee. 
+The fees calculated is in the token, and wallet gets token instead of eth.  

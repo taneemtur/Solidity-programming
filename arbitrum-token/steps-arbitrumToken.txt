@@ -1,0 +1,7 @@
+1- Transfer eth from ethereum to arbitrum wallet: https://bridge.arbitrum.io
+2- Deploy contract on arbitrum
+3- setInitializer: Use owner address
+4- Send upto 1 eth from arbitrum wallet to contract address
+5- initializeContract: Use owner address and certain amount
+6- Add liquidity using uniswap
+7- Transfer token using: Transfer
